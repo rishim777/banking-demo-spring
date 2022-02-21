@@ -8,11 +8,11 @@ import org.example.repository.CustomerRepositoryStub;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DefaultCustomerService {
+public class DefaultCustomerService  implements CustomerService {
 
   private CustomerRepository repository;
 
-  // injecting the repository using the constructor
+ // injecting the repository using the constructor
   public DefaultCustomerService(CustomerRepository repository) {
     this.repository = repository;
   }
