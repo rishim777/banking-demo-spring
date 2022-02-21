@@ -1,6 +1,6 @@
-package repository;
+package org.example.repository;
 
-import model.Customer;
+import org.example.model.Customer;
 
 import java.sql.*;
 import java.util.ArrayList;
