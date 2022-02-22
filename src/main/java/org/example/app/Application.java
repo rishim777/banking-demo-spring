@@ -15,16 +15,11 @@ public class Application {
 
   public static void main(String[] args) {
 
-//    CustomerService service = new DefaultCustomerService(newCustomerRepositoryStub());
-
-//    List<Customer> customers = service.getAllCustomersWithStars();
-
     ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-
     CustomerService service = context.getBean("customerService", CustomerService.class);
-    List<Customer> customers = service.getAllCustomers();
 
+    List<Customer> customers = service.getAllCustomers();
     customers.forEach(System.out::println);
   }
-  
+
 }
