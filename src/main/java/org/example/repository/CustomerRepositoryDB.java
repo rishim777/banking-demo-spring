@@ -1,13 +1,17 @@
 package org.example.repository;
 
 import org.example.model.Customer;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Repository("db")
+//@Primary//in case constructor is present inside the defaultCustomerService then we need to uncomment the
+//primary annotation because in that case spring will not be able to identify in default case which depenndency
+//spring has to inject inside the constructor
 public class CustomerRepositoryDB implements CustomerRepository {
 
   public List<Customer> findAll() {

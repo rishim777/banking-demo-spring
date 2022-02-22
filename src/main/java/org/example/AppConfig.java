@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 //if an object is maintaining the state i.e if any component has many states then we have to make it a
 //prototype bean or else it will be created as a singleton bean
 @Configuration
-@ComponentScan
+@ComponentScan({"org.example"})
 public class AppConfig {
 
 }

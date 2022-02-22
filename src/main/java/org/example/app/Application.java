@@ -2,6 +2,7 @@ package org.example.app;
 
 import org.example.AppConfig;
 import org.example.model.Customer;
+import org.example.repository.CustomerRepository;
 import org.example.repository.CustomerRepositoryDB;
 import org.example.repository.CustomerRepositoryStub;
 import org.example.service.CustomerService;
