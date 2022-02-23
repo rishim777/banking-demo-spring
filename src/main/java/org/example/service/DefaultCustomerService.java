@@ -14,9 +14,15 @@ import java.util.stream.Collectors;
 
 public class DefaultCustomerService  implements CustomerService {
 
-    private CustomerRepository repository;
+  private CustomerRepository repository;
 
-  public DefaultCustomerService(CustomerRepository repository) {
+  public DefaultCustomerService() {
+  }
+//  public DefaultCustomerService(CustomerRepository repository) {
+//    this.repository = repository;
+//  }
+
+  public void setCustomerRepository(CustomerRepository repository) {
     this.repository = repository;
   }
 
