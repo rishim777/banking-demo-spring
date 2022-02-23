@@ -1,6 +1,7 @@
 package org.example.repository;
 
 import org.example.model.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
@@ -8,9 +9,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("db")
 public class CustomerRepositoryDB implements CustomerRepository {
 
-
+  @Autowired
   public List<Customer> findAll() {
     List<Customer> customers=new ArrayList<>();
     try {
