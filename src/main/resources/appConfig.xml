@@ -9,7 +9,7 @@
     </bean>
 
     <bean name= "customerService"
-          class="org.example.service.DefaultCustomerService" autowire="byType">
+          class="org.example.service.DefaultCustomerService" autowire="byName">
 <!--        <constructor-arg ref="customerRepository"/>-->
 <!--        <property name="customerRepository" ref="customerRepository"/>-->
     </bean>
