@@ -22,5 +22,4 @@ public class DefaultCustomerService  implements CustomerService {
     return repository.findAll();
   }
 
-
 }

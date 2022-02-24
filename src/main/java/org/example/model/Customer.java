@@ -5,18 +5,20 @@ import javax.persistence.*;
 @Entity(name="customers")
 public class Customer {
 
+  //First the content from the database is fetched then it is mapped to Customer class object
+  //and at that time only value of id is type-casted to string
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name="customer_id")
-  private String id;
+  private Long id;
   private String name;
   private String city;
 
-  public String getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
