@@ -13,6 +13,22 @@ public class Customer {
   private Long id;
   private String name;
   private String city;
+  private String zipcode;
+  private Integer status;
+  @Column(name="date_of_birth")
+  private String dateTime;
+
+  public String getZipcode() {
+    return zipcode;
+  }
+
+  public Integer getStatus() {
+    return status;
+  }
+
+  public String getDateTime() {
+    return dateTime;
+  }
 
   public Long getId() {
     return id;
@@ -38,12 +54,27 @@ public class Customer {
     this.city = city;
   }
 
+  public void setZipcode(String zipcode) {
+    this.zipcode = zipcode;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public void setDateTime(String dateTime) {
+    this.dateTime = dateTime;
+  }
+
   @Override
   public String toString() {
     return "Customer{" +
-      "id='" + id + '\'' +
-      ", name='" + name + '\'' +
-      ", city='" + city + '\'' +
-      '}';
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", city='" + city + '\'' +
+            ", zipcode='" + zipcode + '\'' +
+            ", status=" + status +
+            ", dateTime='" + dateTime + '\'' +
+            '}';
   }
 }
