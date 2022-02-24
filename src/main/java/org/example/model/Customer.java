@@ -1,6 +1,7 @@
 package org.example.model;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity(name="customers")
 public class Customer {
@@ -16,7 +17,7 @@ public class Customer {
   private String zipcode;
   private Integer status;
   @Column(name="date_of_birth")
-  private String dateTime;
+  private Date dateTime;
 
   public String getZipcode() {
     return zipcode;
@@ -26,7 +27,7 @@ public class Customer {
     return status;
   }
 
-  public String getDateTime() {
+  public Date getDateTime() {
     return dateTime;
   }
 
@@ -62,7 +63,7 @@ public class Customer {
     this.status = status;
   }
 
-  public void setDateTime(String dateTime) {
+  public void setDateTime(Date dateTime) {
     this.dateTime = dateTime;
   }
 
