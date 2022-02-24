@@ -34,4 +34,9 @@ public class DefaultCustomerService  implements CustomerService {
 //      return new Customer();
   }
 
+  @Override
+  public void delCustomer(Long id) {
+    repository.deleteById(id);
+  }
+
 }
