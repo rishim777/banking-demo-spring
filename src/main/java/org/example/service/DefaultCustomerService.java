@@ -34,20 +34,19 @@ public class DefaultCustomerService  implements CustomerService {
       return new ResponseEntity<>(customerbyId.get(), HttpStatus.OK);
     }
       //return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-      //we are not returning Customer object from here, spring is internally returning an object with default
-      //keys like timestamp,error, etc and their values which might be of ResponseEntity type
+      //we are not returning ResponseEntity<Customer> object from here, spring is internally returning an object with default
+      //keys like timestamp,error, etc and their values.
       throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");
-
-//  same as above
-//    if(customerbyId.isPresent())
-//      return customerbyId.get();
-//    else
-//      return new Customer();
   }
 
   @Override
   public void delCustomer(Long id) {
-    repository.deleteById(id);
+    Optional<Customer> customerbyId = repository.findById(id);
+    if(customerbyId.isPresent()){
+      repository.deleteById(id);
+    }
+    else
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");
   }
 
 }
