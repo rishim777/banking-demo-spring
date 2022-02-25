@@ -42,8 +42,8 @@ public class DefaultCustomerService  implements CustomerService {
   //DRY -> Do Not Repeat Yourself
   @Override
   public void delCustomer(Long id) {
-    ResponseEntity<Customer> customer=getCustomerById(id);
-    if(customer.getStatusCode().is4xxClientError()){
+    ResponseEntity<Customer> responseEntity=getCustomerById(id);
+    if(responseEntity.getStatusCode().is4xxClientError()){
       throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");
     }
     repository.deleteById(id);
@@ -53,6 +53,11 @@ public class DefaultCustomerService  implements CustomerService {
 //    }
 //    else
 //      throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");
+  }
+
+  @Override
+  public Customer addCustomer(Customer customer) {
+    return repository.saveAndFlush(customer);
   }
 
 }

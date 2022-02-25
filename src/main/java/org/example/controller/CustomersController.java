@@ -29,4 +29,9 @@ public class CustomersController {
     public void deleteCustomer(@PathVariable Long id){
         customerService.delCustomer(id);
     }
+
+    @PostMapping
+    public Customer addCustomer(@RequestBody Customer customer){
+        return customerService.addCustomer(customer);
+    }
 }
