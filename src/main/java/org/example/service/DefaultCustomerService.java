@@ -39,14 +39,20 @@ public class DefaultCustomerService  implements CustomerService {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");
   }
 
+  //DRY -> Do Not Repeat Yourself
   @Override
   public void delCustomer(Long id) {
-    Optional<Customer> customerbyId = repository.findById(id);
-    if(customerbyId.isPresent()){
-      repository.deleteById(id);
-    }
-    else
+    ResponseEntity<Customer> customer=getCustomerById(id);
+    if(customer.getStatusCode().is4xxClientError()){
       throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");
+    }
+    repository.deleteById(id);
+//    Optional<Customer> customerbyId = repository.findById(id);
+//    if(customerbyId.isPresent()){
+//      repository.deleteById(id);
+//    }
+//    else
+//      throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer Not Found");
   }
 
 }
