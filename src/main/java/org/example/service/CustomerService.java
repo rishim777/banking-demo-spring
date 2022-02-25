@@ -8,8 +8,12 @@ import java.util.List;
 public interface CustomerService {
 
   List<Customer> getAllCustomers();
+
   ResponseEntity<Customer> getCustomerById(Long id);
+
   void delCustomer(Long id);
 
-    Customer addCustomer(Customer customer);
+  Customer addCustomer(Customer customer);
+
+  Customer updateCustomer(Long id, Customer customer);
 }

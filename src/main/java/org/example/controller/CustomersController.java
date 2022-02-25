@@ -34,4 +34,9 @@ public class CustomersController {
     public Customer addCustomer(@RequestBody Customer customer){
         return customerService.addCustomer(customer);
     }
+
+    @RequestMapping(value = "{id}",method = RequestMethod.PUT)
+    public Customer addCustomer(@PathVariable Long id,@RequestBody Customer customer){
+        return customerService.updateCustomer(id,customer);
+    }
 }
